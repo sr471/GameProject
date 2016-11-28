@@ -3,8 +3,9 @@ function randomNumber(min,max){
  return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-  var foodEaten = 0
-  var foodText = document.getElementById("foodEaten")
+var foodEaten = 0
+var foodText = document.getElementById("foodEaten")
+foodText.textContent ="Food Eaten: " + foodEaten
 
 document.addEventListener("keydown", function(e) {
 
@@ -18,38 +19,32 @@ document.addEventListener("keydown", function(e) {
   var foodHeight = 40;
 
 
+
     if (e.keyCode == 37) {
-      if (x > foodX && x < foodX + foodWidth && y > foodY && y < foodY + foodWidth){
-        food1.setAttribute("x", randomNumber(40,810))
-        foodEaten == foodEaten + 1
-        console.log("touch")
-      }
+
         player.setAttribute("x", x - 15)
         x = x - 15
     } else if (e.keyCode == 39) {
-      if (x > foodX && x < foodX + foodWidth && y > foodY && y < foodY + foodWidth){
-        food1.setAttribute("x", randomNumber(40,810))
-        foodEaten == foodEaten + 1
-        console.log("touch")
-      }
+
       player.setAttribute("x", x + 15)
         x = x + 15
     } else if (e.keyCode == 38) {
-      if (x > foodX && x < foodX + foodWidth && y > foodY && y < foodY + foodWidth){
-          food1.setAttribute("x", randomNumber(40,810))
-          foodEaten == foodEaten + 1
-        console.log("touch")
-      }
+
         player.setAttribute("y", y - 15)
         y = y - 15
     } else if (e.keyCode == 40) {
-      if (x > foodX && x < foodX + foodWidth && y > foodY && y < foodY + foodWidth){
-          food1.setAttribute("x", randomNumber(40,810))
-          foodEaten == foodEaten + 1
-        console.log("touch")
-      }
+
       player.setAttribute("y", y + 15)
         y = y + 15
     }
+
+
+    if (e.keyCode == 37 || 38 || 39 || 40) {
+      if (x + 50 > foodX && x + 50 < foodX + foodWidth && y + 20 > foodY && y + 20 < foodY + foodWidth){
+        food1.setAttribute("x", randomNumber(40,810))
+        foodEaten = foodEaten + 1
+          console.log(foodEaten)
+      }}
+
   foodText.textContent ="Food Eaten: " + foodEaten
 })
