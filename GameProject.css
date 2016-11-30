@@ -1,6 +1,26 @@
 body{
-  background-color: blue;
+  background-color: lightblue;
   margin: 0;
-  background-image: url(clouds.jpg);
-  background-size: auto;
+}
+
+
+#slideDown{
+  display: none;
+  text-align: center;
+  background-color: lightblue;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  font-family: 'Bungee Inline', cursive;
+}
+
+button{
+  font-family: 'Bungee Inline', cursive;
+  background-color: purple;
+  padding: 7px 15px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
 }
