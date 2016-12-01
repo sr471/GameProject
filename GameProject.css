@@ -24,3 +24,6 @@ button{
   display: inline-block;
   font-size: 20px;
 }
+body{
+  font-family: 'Bungee Inline', cursive;
+}

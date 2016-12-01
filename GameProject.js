@@ -25,8 +25,10 @@ document.addEventListener("keydown", function(e) {
   var foodWidth = 40;
   var foodHeight = 40;
   var gameOver = false;
+  var time = (Date.now()-timeStart)/1000
+  time = time.toFixed(0)
 
-
+  
 if(foodEaten == 1){
   gameOver = true
 }
@@ -74,6 +76,7 @@ else
     }
 
   foodText.textContent ="Food Eaten: " + foodEaten
+    document.getElementById("time").textContent ="Time: " + time
 }
 
   if(gameOver == true){
