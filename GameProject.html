@@ -7,14 +7,19 @@
   </head>
   <body>
     <div id="slideDown">
-      <h1>You Won!</h1>
+      <h1 id="winOrLose">You Won!</h1>
       <h2 id="score"> </h2>
       <h2 id="endTime"> </h2>
       <button onclick="reloadGame()">Play Again</button>
     </div>
     <svg id="screen" width="100%" viewBox="0 0 850 400" style="background: #ffffff no-repeat right top url(sky.jpg) " >
         <!-- Player -->
-       <image id="player" x="0" y="0" width="80" height="80" xlink:href="Iron_Man.png"/>
+       <image id="player" x="0" y="10" width="80" height="80" xlink:href="cap.png"/>
+       <!-- Enemy -->
+       <image id="enemy" x="0" y="200" width="80" height="80" xlink:href="Iron_Man.png">
+         <animate id="Edown" attributeName="x" from="0" to="750" dur="5s" begin="0s;Eup.end"/>
+        <animate id="Eup" attributeName="x" from="750" to="0" dur="5s" begin="Edown.end"/>
+       </image>
        <!-- Food 1 -->
        <image id="food1" x="100" y="10" width="40" height="40" xlink:href="Captain_America_Shield.png">
          <animate id="down" attributeName="y" from="10" to="360" dur="5s" begin="0s;up.end"/>

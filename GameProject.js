@@ -7,10 +7,13 @@ var timeStart = Date.now()
 var foodEaten = 0
 var foodText = document.getElementById("foodEaten")
 foodText.textContent ="Food Eaten: " + foodEaten
+var enemy = false
+
 
 document.addEventListener("keydown", function(e) {
 
   var player = document.getElementById("player")
+  var enemy = document.getElementById("enemy")
   var food1 = document.getElementById("food1")
   var food2 = document.getElementById("food2")
   var food3 = document.getElementById("food3")
@@ -22,19 +25,18 @@ document.addEventListener("keydown", function(e) {
   var otherFoodY = Number(food2.getAttribute("y"))
   var anotherFoodX = Number(food3.getAttribute("x"))
   var anotherFoodY = Number(food3.getAttribute("y"))
+  var enemyX = Number(enemy.getAttribute("x"))
+  var enemyY = Number(enemy.getAttribute("y"))
+  var enemyWidth = 80;
+  var enemyHeight = 80;
   var foodWidth = 40;
   var foodHeight = 40;
   var gameOver = false;
   var time = (Date.now()-timeStart)/1000
   time = time.toFixed(0)
 
-  
-if(foodEaten == 1){
-  gameOver = true
-}
 
-else
-  {  if (e.keyCode == 37) {
+  if (e.keyCode == 37) {
 
         player.setAttribute("x", x - 15)
         x = x - 15
@@ -72,22 +74,35 @@ else
           console.log(foodEaten)
       }
 
+      else if (x + 50 > enemyX && x + 50 < enemyX + enemyWidth && y + 20 > enemyY && y + 20 < enemyY + enemyWidth){
+        gameOver = true
+        enemy = true
+      }
 
     }
 
   foodText.textContent ="Food Eaten: " + foodEaten
     document.getElementById("time").textContent ="Time: " + time
-}
+
+    if(foodEaten == 5){
+      gameOver = true
+    }
+
 
   if(gameOver == true){
       document.getElementById("screen").pauseAnimations()
-    var timeStop = Date.now()
-    var gameTime = (timeStop - timeStart)/1000
-    var gameTime2 = Math.round(gameTime)
-    document.getElementById("endTime").textContent = "Game Time: " + gameTime2 + " seconds"
+            var timeStop = Date.now()
+        var gameTime = (timeStop - timeStart)/1000
+        var gameTime2 = Math.round(gameTime)
+        timeDisplayed = true
+        var ugh = gameTime2
+      document.getElementById("endTime").textContent = "Game Time: " + ugh + " seconds"
     document.getElementById("score").textContent = "Score: " + foodEaten
     foodText.textContent = ""
     document.getElementById("slideDown").style.display = "block";
+    if(enemy == true){
+      document.getElementById("winOrLose").textContent = " You lose, Iron Man caught you!"
+    }
 
   }
 
