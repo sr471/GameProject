@@ -35,7 +35,7 @@ document.addEventListener("keydown", function(e) {
   var time = (Date.now()-timeStart)/1000
   time = time.toFixed(0)
 
-
+// Player Move
   if (e.keyCode == 37) {
 
         player.setAttribute("x", x - 15)
@@ -54,7 +54,7 @@ document.addEventListener("keydown", function(e) {
         y = y + 15
     }
 
-
+// Food or Enemy Collide
     if (e.keyCode == 37 || 38 || 39 || 40) {
       if (x + 50 > foodX && x + 50 < foodX + foodWidth && y + 20 > foodY && y + 20 < foodY + foodWidth){
         food1.setAttribute("x", randomNumber(40,810))
@@ -88,7 +88,7 @@ document.addEventListener("keydown", function(e) {
       gameOver = true
     }
 
-
+// Game Over function
   if(gameOver == true){
       document.getElementById("screen").pauseAnimations()
             var timeStop = Date.now()
@@ -103,7 +103,6 @@ document.addEventListener("keydown", function(e) {
     if(enemy == true){
       document.getElementById("winOrLose").textContent = " You lose, Iron Man caught you!"
     }
-
   }
 
 
